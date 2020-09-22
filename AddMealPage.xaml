@@ -1,0 +1,166 @@
+﻿<Page x:Class="Nutrition_Tracker.AddMealPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Nutrition_Tracker"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="656"
+      Title="AddMealPage">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4.5*" />
+            <RowDefinition Height=".1*" />
+        </Grid.RowDefinitions>
+
+        <Label 
+            Content="Add a New Meal"
+            FontSize="35"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center" 
+            Margin="10"
+            Height="60" 
+            Width="636" />
+
+
+
+
+        <Button 
+            Content="Cancel" 
+            Name="CancelButton"
+            HorizontalAlignment="Left"
+            Margin="123,290,0,0" 
+            VerticalAlignment="Top" 
+            Height="44" 
+            Width="107"
+            Grid.Row="1"
+            FontSize="20" 
+            Click="CancelButton_Click"
+            />
+        <Button 
+            Content="Add" 
+            Name="AddButton"
+            HorizontalAlignment="Left" 
+            Margin="426,290,0,0" 
+            VerticalAlignment="Top" 
+            Height="44" 
+            Width="107"
+            FontSize="20" 
+            Grid.Row="1"
+            Click="AddButton_Click"
+            />
+
+        
+        
+        <Label 
+            Content="KCals" 
+            FontSize="25" 
+            HorizontalAlignment="Left" 
+            HorizontalContentAlignment="Right" 
+            Margin="165,40,0,0" 
+            Grid.Row="1" 
+            VerticalAlignment="Top" 
+            Height="44" 
+            Width="117"/>
+        <TextBox 
+            x:Name="KCalInput"
+            PreviewTextInput="NumericOnly"
+            MaxLength="4"
+            MaxLines="1"
+            HorizontalAlignment="Left" 
+            HorizontalContentAlignment="Center"
+            FontSize="25" 
+            Margin="347,40,0,0" 
+            Grid.Row="1" 
+            TextWrapping="Wrap"
+            VerticalAlignment="Top" 
+            VerticalContentAlignment="Center"
+            Width="117" 
+            Height="44"/>
+
+
+        <Label
+            Content="Protein"
+            FontSize="25" 
+            HorizontalAlignment="Left" 
+            HorizontalContentAlignment="Right"
+            Margin="165,99,0,0" 
+            Grid.Row="1" 
+            VerticalAlignment="Top" 
+            Height="44" 
+            Width="117"/>
+        <TextBox 
+            x:Name="ProteinInput"
+            PreviewTextInput="NumericOnly"
+            MaxLength="4"
+            MaxLines="1"
+            HorizontalAlignment="Left" 
+            HorizontalContentAlignment="Center"
+            FontSize="25" 
+            Margin="347,99,0,0" 
+            Grid.Row="1" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            VerticalContentAlignment="Center"
+            Width="117" 
+            Height="44"/>
+
+
+        <Label 
+            Content="Carbs" 
+            FontSize="25" 
+            HorizontalAlignment="Left"
+            HorizontalContentAlignment="Right" 
+            Margin="165,158,0,0" 
+            Grid.Row="1" 
+            VerticalAlignment="Top" 
+            Height="44"
+            Width="117"/>
+        <TextBox 
+            x:Name="CarbsInput"
+            PreviewTextInput="NumericOnly"
+            MaxLength="4"
+            MaxLines="1"
+            HorizontalAlignment="Left" 
+            HorizontalContentAlignment="Center"
+            FontSize="25" 
+            Margin="347,158,0,0" 
+            Grid.Row="1" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            VerticalContentAlignment="Center"
+            Width="117"
+            Height="44"/>
+
+
+        <Label 
+            Content="Fats" 
+            FontSize="25" 
+            HorizontalAlignment="Left" 
+            HorizontalContentAlignment="Right" 
+            Margin="165,215,0,0" 
+            Grid.Row="1" 
+            VerticalAlignment="Top" 
+            Height="43" 
+            Width="117"/>
+        <TextBox 
+            x:Name="FatsInput"
+            PreviewTextInput="NumericOnly"
+            MaxLength="4"
+            MaxLines="1"
+            HorizontalAlignment="Left" 
+            HorizontalContentAlignment="Center"
+            FontSize="25" 
+            Margin="347,215,0,0"
+            Grid.Row="1"
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            VerticalContentAlignment="Center"
+            Width="117" 
+            Height="43"/>
+
+    </Grid>
+</Page>

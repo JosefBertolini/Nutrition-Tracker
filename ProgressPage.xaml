@@ -1,0 +1,654 @@
+﻿<Page x:Class="Nutrition_Tracker.ProgressPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Nutrition_Tracker"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="656"
+      Title="ProgressPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2.25*" />
+            <RowDefinition Height="2.5*" />
+            <RowDefinition Height=".1*" />
+        </Grid.RowDefinitions>
+
+        <Label 
+            Content="Progress Report"
+            FontSize="35"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center" 
+            Margin="10"
+            Height="60" 
+            Width="636" />
+
+        <Canvas x:Name="AltWeightProgress"
+                Grid.Row="1"
+                Visibility="Hidden">
+            <Label 
+                Content="Weight Progress"
+                FontSize="23"
+                HorizontalAlignment="Left" 
+                Margin="10,0,0,0" 
+                Padding="0" 
+                VerticalAlignment="Top" 
+                Width="173" 
+                Height="30"/>
+            <Rectangle 
+                x:Name="AltWeightRect"
+                HorizontalAlignment="Left" 
+                Height="20" 
+                Margin="80,74,0,0"
+                Grid.Row="1" 
+                Stroke="Black" 
+                VerticalAlignment="Top"
+                Width="500" 
+                Panel.ZIndex="1"/>
+            <Rectangle 
+                x:Name="AltWeightRectFill"
+                HorizontalAlignment="Left" 
+                Height="20" 
+                Margin="330,74,0,0"
+                Grid.Row="1" 
+                VerticalAlignment="Top"
+                Width="10" 
+                Panel.ZIndex="0" />
+            <Label 
+                Content="-10 lbs."
+                Canvas.Left="48" 
+                Canvas.Top="48" 
+                Width="65"/>
+            <Label 
+                Content="+10 lbs."
+                HorizontalContentAlignment="Right"
+                Canvas.Left="548" 
+                Canvas.Top="48" 
+                Width="65"/>
+            <Canvas x:Name="AltCurrentWeightGroup" Grid.Row="1" Margin="248,98,493,75">
+                <Label 
+                    HorizontalContentAlignment="Right"
+                    Grid.Row="1"
+                    Width="95" 
+                    Height="28" 
+                    Canvas.Top="30">Current weight:</Label>
+                <Label 
+                    x:Name="AltCurrentWeightLabel"
+                    FontSize="20"  
+                    Grid.Row="1" 
+                    VerticalContentAlignment="Bottom"
+                    Height="32" 
+                    Width="80" 
+                    Canvas.Left="87" 
+                    Canvas.Top="22">9999.99</Label>
+
+                <Path Stretch="Fill" Grid.Row="1" Fill="Black" 
+                      Data="M
+                      0,115   95,115   
+                      65,90   85,90    
+                      120,120          
+                              85,150  65,150  
+                              95,125  0,125   
+                      Z"  
+                      Width="32" 
+                      Canvas.Left="92" 
+                      Canvas.Top="32.667" Height="19"
+        >
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="270"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Canvas>
+            <Label 
+                Content="Target weight: " 
+                HorizontalContentAlignment="Right"
+                Width="94" Canvas.Left="244" Canvas.Top="43"/>
+            <Label 
+                x:Name="AltTargetWeightLabel"
+                Content="9999.99" 
+                FontSize="20" 
+                VerticalContentAlignment="Bottom"
+                Height="34" 
+                Width="80" Canvas.Left="330" Canvas.Top="35"/>
+
+        </Canvas>
+
+        <Canvas x:Name="RegWeightProgress"
+                Grid.Row="1"
+                Visibility="Hidden">
+            <Label 
+                Content="Weight Progress"
+                FontSize="23"
+                HorizontalAlignment="Left" 
+                Margin="10,0,0,0" 
+                Padding="0" 
+                VerticalAlignment="Top" 
+                Width="173" 
+                Height="30"/>
+            <TextBlock 
+                x:Name="RegProgressMessage"
+                Margin="0,31,0,0" 
+                Grid.Row="1" 
+                Text="Still have a ways to go, but nothing is impossible!" 
+                TextWrapping="Wrap"
+                TextAlignment="Center"
+                Padding="0,20"
+                Width="272" 
+                Height="42" Canvas.Left="194" Canvas.Top="2"/>
+            <Rectangle 
+                x:Name="WeightRect"
+                HorizontalAlignment="Left" 
+                Height="20" 
+                Margin="80,74,0,0"
+                Grid.Row="1" 
+                Stroke="Black" 
+                VerticalAlignment="Top"
+                Width="500" 
+                Panel.ZIndex="1"/>
+            <Rectangle 
+                x:Name="WeightRectFill"
+                HorizontalAlignment="Left" 
+                Height="20" 
+                Margin="80,74,0,0"
+                Grid.Row="1" 
+                VerticalAlignment="Top"
+                Width="0" 
+                Panel.ZIndex="0"/>
+            <Label 
+                Content="Starting weight: " 
+                HorizontalAlignment="Left" 
+                Margin="10,43,0,0"
+                Grid.Row="1" 
+                VerticalAlignment="Top"
+                Width="94"/>
+            <Label 
+                x:Name="StartWeightLabel"
+                Content="9999.99" 
+                FontSize="20"
+                HorizontalAlignment="Left" 
+                Margin="96,35,0,0" 
+                Grid.Row="1" 
+                VerticalAlignment="Top" 
+                VerticalContentAlignment="Bottom"
+                Height="34" 
+                Width="80"/>
+            <Label 
+                Content="Target weight: " 
+                HorizontalAlignment="Left" 
+                HorizontalContentAlignment="Right"
+                Margin="480,43,0,0"
+                Grid.Row="1" 
+                VerticalAlignment="Top"
+                Width="94"/>
+            <Label 
+                x:Name="TargetWeightLabel"
+                Content="9999.99" 
+                FontSize="20"
+                HorizontalAlignment="Left" 
+                Margin="566,35,0,0" 
+                Grid.Row="1" 
+                VerticalAlignment="Top" 
+                VerticalContentAlignment="Bottom"
+                Height="34" 
+                Width="80"/>
+            <Canvas x:Name="CurrentWeightGroup" Grid.Row="1" Margin="-2,98,493,75">
+                <Label 
+                    HorizontalContentAlignment="Right"
+                    Grid.Row="1"
+                    Width="95" 
+                    Height="28" 
+                    Canvas.Top="30">Current weight:</Label>
+                <Label 
+                    x:Name="CurrentWeightLabel"
+                    FontSize="20"  
+                    Grid.Row="1" 
+                    VerticalContentAlignment="Bottom"
+                    Height="32" 
+                    Width="80" 
+                    Canvas.Left="87" 
+                    Canvas.Top="22">9999.99</Label>
+
+                <Path Stretch="Fill" Grid.Row="1" Fill="Black" 
+                      Data="M
+                      0,115   95,115   
+                      65,90   85,90    
+                      120,120          
+                              85,150  65,150  
+                              95,125  0,125   
+                      Z"  
+                      Width="32" 
+                      Canvas.Left="92" 
+                      Canvas.Top="32.667" Height="19"
+        >
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="270"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Canvas>
+        </Canvas>
+
+
+        <Label 
+            Content="Diet Streak"
+            FontSize="23"
+            HorizontalAlignment="Left" 
+            Margin="10,0,0,0" 
+            Padding="0" 
+            VerticalAlignment="Top" 
+            Width="113" 
+            Height="30" Grid.Row="2"/>
+        <Label 
+            Content="(past 7 days)" 
+            HorizontalAlignment="Left" 
+            Margin="123,12,0,0" 
+            Padding="0"
+            Grid.Row="2" 
+            VerticalAlignment="Top" 
+            Width="89"/>
+
+        <Canvas x:Name="Day7Group"
+                Grid.Row="2"
+                Width="90" 
+                Margin="9,49,557,22"
+                >
+            <Label
+                Content="Day 7"
+                Padding="0"
+                FontSize="20"
+                HorizontalContentAlignment="Center"
+                Width="90"/>
+            <Ellipse
+                Name="KcalFill7"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="12.5" 
+                Canvas.Top="32.5"/>
+            <Ellipse
+                Name="ProteinFill7"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="52.5" 
+                Canvas.Top="32.5"/>
+            <Ellipse
+                Name="CarbsFill7"
+                Height="25"
+                Width="26" 
+                Stroke="Black"
+                Canvas.Left="12.5" 
+                Canvas.Top="80"/>
+            <Ellipse
+                Name="FatsFill7"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="52.5" 
+                Canvas.Top="80"/>
+            <Label
+                Content="kcal" 
+                Canvas.Left="10" 
+                Canvas.Top="50"/>
+            <Label
+                Content="prot" 
+                Canvas.Left="50" 
+                Canvas.Top="50"/>
+            <Label
+                Content="carb" 
+                Canvas.Left="10" 
+                Canvas.Top="97.5"/>
+            <Label
+                Content="fats" 
+                Canvas.Left="50" 
+                Canvas.Top="97.5"/>
+        </Canvas>
+        <Canvas x:Name="Day6Group"
+                Grid.Row="2"
+                Width="90" 
+                Margin="99,49,467,22"
+                >
+            <Label
+                Content="Day 6"
+                Padding="0"
+                FontSize="20"
+                HorizontalContentAlignment="Center"
+                Width="90"/>
+            <Ellipse
+                Name="KcalFill6"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="12.5" 
+                Canvas.Top="32.5"/>
+            <Ellipse
+                Name="ProteinFill6"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="52.5" 
+                Canvas.Top="32.5"/>
+            <Ellipse
+                Name="CarbsFill6"
+                Height="25"
+                Width="26" 
+                Stroke="Black"
+                Canvas.Left="12.5" 
+                Canvas.Top="80"/>
+            <Ellipse
+                Name="FatsFill6"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="52.5" 
+                Canvas.Top="80"/>
+            <Label
+                Content="kcal" 
+                Canvas.Left="10" 
+                Canvas.Top="50"/>
+            <Label
+                Content="prot" 
+                Canvas.Left="50" 
+                Canvas.Top="50"/>
+            <Label
+                Content="carb" 
+                Canvas.Left="10" 
+                Canvas.Top="97.5"/>
+            <Label
+                Content="fats" 
+                Canvas.Left="50" 
+                Canvas.Top="97.5"/>
+        </Canvas>
+        <Canvas x:Name="Day5Group"
+                Grid.Row="2"
+                Width="90" 
+                Margin="189,49,377,22"
+                >
+            <Label
+                Content="Day 5"
+                Padding="0"
+                FontSize="20"
+                HorizontalContentAlignment="Center"
+                Width="90"/>
+            <Ellipse
+                Name="KcalFill5"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="12.5" 
+                Canvas.Top="32.5"/>
+            <Ellipse
+                Name="ProteinFill5"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="52.5" 
+                Canvas.Top="32.5"/>
+            <Ellipse
+                Name="CarbsFill5"
+                Height="25"
+                Width="26" 
+                Stroke="Black"
+                Canvas.Left="12.5" 
+                Canvas.Top="80"/>
+            <Ellipse
+                Name="FatsFill5"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="52.5" 
+                Canvas.Top="80"/>
+            <Label
+                Content="kcal" 
+                Canvas.Left="10" 
+                Canvas.Top="50"/>
+            <Label
+                Content="prot" 
+                Canvas.Left="50" 
+                Canvas.Top="50"/>
+            <Label
+                Content="carb" 
+                Canvas.Left="10" 
+                Canvas.Top="97.5"/>
+            <Label
+                Content="fats" 
+                Canvas.Left="50" 
+                Canvas.Top="97.5"/>
+        </Canvas>
+        <Canvas x:Name="Day4Group"
+                Grid.Row="2"
+                Width="90" 
+                Margin="279,49,287,22"
+                >
+            <Label
+                Content="Day 4"
+                Padding="0"
+                FontSize="20"
+                HorizontalContentAlignment="Center"
+                Width="90"/>
+            <Ellipse
+                Name="KcalFill4"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="12.5" 
+                Canvas.Top="32.5"/>
+            <Ellipse
+                Name="ProteinFill4"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="52.5" 
+                Canvas.Top="32.5"/>
+            <Ellipse
+                Name="CarbsFill4"
+                Height="25"
+                Width="26" 
+                Stroke="Black"
+                Canvas.Left="12.5" 
+                Canvas.Top="80"/>
+            <Ellipse
+                Name="FatsFill4"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="52.5" 
+                Canvas.Top="80"/>
+            <Label
+                Content="kcal" 
+                Canvas.Left="10" 
+                Canvas.Top="50"/>
+            <Label
+                Content="prot" 
+                Canvas.Left="50" 
+                Canvas.Top="50"/>
+            <Label
+                Content="carb" 
+                Canvas.Left="10" 
+                Canvas.Top="97.5"/>
+            <Label
+                Content="fats" 
+                Canvas.Left="50" 
+                Canvas.Top="97.5"/>
+        </Canvas>
+        <Canvas x:Name="Day3Group"
+                Grid.Row="2"
+                Width="90" 
+                Margin="369,49,197,22"
+                >
+            <Label
+                Content="Day 3"
+                Padding="0"
+                FontSize="20"
+                HorizontalContentAlignment="Center"
+                Width="90"/>
+            <Ellipse
+                Name="KcalFill3"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="12.5" 
+                Canvas.Top="32.5"/>
+            <Ellipse
+                Name="ProteinFill3"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="52.5" 
+                Canvas.Top="32.5"/>
+            <Ellipse
+                Name="CarbsFill3"
+                Height="25"
+                Width="26" 
+                Stroke="Black"
+                Canvas.Left="12.5" 
+                Canvas.Top="80"/>
+            <Ellipse
+                Name="FatsFill3"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="52.5" 
+                Canvas.Top="80"/>
+            <Label
+                Content="kcal" 
+                Canvas.Left="10" 
+                Canvas.Top="50"/>
+            <Label
+                Content="prot" 
+                Canvas.Left="50" 
+                Canvas.Top="50"/>
+            <Label
+                Content="carb" 
+                Canvas.Left="10" 
+                Canvas.Top="97.5"/>
+            <Label
+                Content="fats" 
+                Canvas.Left="50" 
+                Canvas.Top="97.5"/>
+        </Canvas>
+        <Canvas x:Name="Day2Group"
+                Grid.Row="2"
+                Width="90" 
+                Margin="459,49,107,22"
+                >
+            <Label
+                Content="Day 2"
+                Padding="0"
+                FontSize="20"
+                HorizontalContentAlignment="Center"
+                Width="90"/>
+            <Ellipse
+                Name="KcalFill2"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="12.5" 
+                Canvas.Top="32.5"/>
+            <Ellipse
+                Name="ProteinFill2"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="52.5" 
+                Canvas.Top="32.5"/>
+            <Ellipse
+                Name="CarbsFill2"
+                Height="25"
+                Width="26" 
+                Stroke="Black"
+                Canvas.Left="12.5" 
+                Canvas.Top="80"/>
+            <Ellipse
+                Name="FatsFill2"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="52.5" 
+                Canvas.Top="80"/>
+            <Label
+                Content="kcal" 
+                Canvas.Left="10" 
+                Canvas.Top="50"/>
+            <Label
+                Content="prot" 
+                Canvas.Left="50" 
+                Canvas.Top="50"/>
+            <Label
+                Content="carb" 
+                Canvas.Left="10" 
+                Canvas.Top="97.5"/>
+            <Label
+                Content="fats" 
+                Canvas.Left="50" 
+                Canvas.Top="97.5"/>
+        </Canvas>
+        <Canvas x:Name="Day1Group"
+                Grid.Row="2"
+                Width="90" 
+                Margin="549,49,107,22"
+                >
+            <Label
+                Content="Today"
+                Padding="0"
+                FontSize="20"
+                HorizontalContentAlignment="Center"
+                Width="90"/>
+            <Ellipse
+                Name="KcalFill1"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="12.5" 
+                Canvas.Top="32.5"/>
+            <Ellipse
+                Name="ProteinFill1"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="52.5" 
+                Canvas.Top="32.5"/>
+            <Ellipse
+                Name="CarbsFill1"
+                Height="25"
+                Width="26" 
+                Stroke="Black"
+                Canvas.Left="12.5" 
+                Canvas.Top="80"/>
+            <Ellipse
+                Name="FatsFill1"
+                Height="25"
+                Width="25" 
+                Stroke="Black"
+                Canvas.Left="52.5" 
+                Canvas.Top="80"/>
+            <Label
+                Content="kcal" 
+                Canvas.Left="10" 
+                Canvas.Top="50"/>
+            <Label
+                Content="prot" 
+                Canvas.Left="50" 
+                Canvas.Top="50"/>
+            <Label
+                Content="carb" 
+                Canvas.Left="10" 
+                Canvas.Top="97.5"/>
+            <Label
+                Content="fats" 
+                Canvas.Left="50" 
+                Canvas.Top="97.5"/>
+        </Canvas>
+    </Grid>
+</Page>

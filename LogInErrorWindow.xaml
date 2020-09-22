@@ -1,0 +1,16 @@
+﻿<Window x:Class="Nutrition_Tracker.LogInErrorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nutrition_Tracker"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="Log In Error" Height="200" Width="400">
+    <Grid>
+        <Label Content="LOGIN ERROR" HorizontalAlignment="Left" Margin="119,40,0,0" VerticalAlignment="Top" Width="252" Height="52" FontSize="30"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="10,24,0,0" VerticalAlignment="Top" Width="100" Source="/error--v1.png"/>
+        <Label Content="No User found with that name." HorizontalAlignment="Left" Margin="119,97,0,0" VerticalAlignment="Top" Height="34" Width="201"/>
+
+    </Grid>
+</Window>

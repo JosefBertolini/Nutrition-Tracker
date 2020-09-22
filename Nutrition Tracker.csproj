@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Nutrition_Tracker</RootNamespace>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>hnet.com-image.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="error--v1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="error--v1.png" />
+  </ItemGroup>
+
+</Project>
